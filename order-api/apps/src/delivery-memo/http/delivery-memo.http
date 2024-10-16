@@ -1,0 +1,19 @@
+### 배송메모 저장하기
+POST http://localhost:3000/apis/orders/delivery-memos?email=test@email.com HTTP/1.1
+Content-Type: application/json
+
+{
+  "memo": "201호 앞에 놓아주세요."
+}
+
+### 배송메모 삭제하기
+DELETE http://localhost:3000/apis/orders/delivery-memos/1?email=test@email.com HTTP/1.1
+Content-Type: application/json
+
+### 배송메모 목록 조회하기
+GET http://localhost:3000/apis/orders/delivery-memos?email=test@email.com&pageNumber=1&pageSize=4 HTTP/1.1
+Content-Type: application/json
+
+### 최근 배송메모 조회하기
+GET http://localhost:3000/apis/orders/delivery-memos/recent?email=test@email.com HTTP/1.1
+Content-Type: application/json

@@ -1,0 +1,39 @@
+### 결제하기 - 결제 후 처리 
+POST http://localhost:3000/apis/orders/payments/?email=test@email.com HTTP/1.1
+Content-Type: application/json
+
+{
+    "paymentId": "payment-8b862451-2380-47dd-bba0-7fd7ec0b9fd9",
+    "orderId": 24,
+    "payMethod": "CARD",
+    "deliveryId": 1,
+    "deliveryMemoId": 1,
+    "pointAmount": 0,
+    "couponAmount": 0
+}
+
+### 결제 내역 조회하기 
+GET http://localhost:3000/apis/orders/payments/orders/24?email=test@email.com&pageNumber=1&pageSize=4 HTTP/1.1
+Content-Type: application/json
+
+### 결제 내역 상세 조회하기 
+GET http://localhost:3000/apis/orders/payments/5?email=test@email.com HTTP/1.1
+Content-Type: application/json
+
+### 환경변수 조회하기 
+GET http://localhost:3000/apis/orders/payments/env?email=test@email.com HTTP/1.1
+Content-Type: application/json
+
+### 결제 취소하기 & 환불하기 
+POST http://localhost:3000/apis/orders/payments/cancel?email=test@email.com HTTP/1.1
+Content-Type: application/json
+
+{
+    "portOnePaymentCancelInput": {
+        "amount": 250,
+        "reason": "단순 변심입니다.",
+        "requester": "CUSTOMER"
+    },
+    "orderId": 25,
+    "isPartial": false
+}

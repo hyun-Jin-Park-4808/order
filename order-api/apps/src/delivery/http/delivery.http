@@ -1,0 +1,30 @@
+### 배송지 신규 입력하기
+POST http://localhost:3000/apis/orders/deliveries?email=test@email.com HTTP/1.1
+Content-Type: application/json
+
+{
+  "customerName": "홍길이",
+  "phoneNumber": "010-1234-5678",
+  "address": "서울시 송파구 석촌동 13, 202호"
+}
+
+### 배송지 수정하기
+PATCH http://localhost:3000/apis/orders/deliveries/1?email=test@email.com HTTP/1.1
+Content-Type: application/json
+
+{
+  "address": "서울시 송파구 석촌동 18, 203호",
+  "isDefault": true
+}
+
+### 배송지 삭제하기
+DELETE http://localhost:3000/apis/orders/deliveries/1?email=test@email.com HTTP/1.1
+Content-Type: application/json
+
+### 기본 배송지 조회하기
+GET http://localhost:3000/apis/orders/deliveries/default?email=test@email.com HTTP/1.1
+Content-Type: application/json
+
+### 배송지 목록 조회하기
+GET http://localhost:3000/apis/orders/deliveries?email=test@email.com&pageNumber=1&pageSize=4 HTTP/1.1
+Content-Type: application/json

@@ -1,0 +1,39 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/src",
+  "monorepo": true,
+  "root": "apps",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/tsconfig.app.json",
+    "plugins": [
+      {
+        "name": "@nestjs/swagger",
+        "options": {
+          "classValidatorShim": false,
+          "introspectComments": true
+        }
+      }
+    ]
+  },
+  "projects": {
+    "common": {
+      "type": "library",
+      "root": "common/libs/common",
+      "entryFile": "index",
+      "sourceRoot": "common/libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "common/libs/common/tsconfig.lib.json"
+      }
+    },
+    "order-api": {
+      "type": "application",
+      "root": "apps",
+      "entryFile": "main",
+      "sourceRoot": "apps/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/tsconfig.app.json"
+      }
+    }
+  }
+}
